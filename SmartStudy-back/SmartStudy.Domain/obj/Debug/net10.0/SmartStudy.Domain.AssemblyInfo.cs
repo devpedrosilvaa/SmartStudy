@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmartStudy.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9a99429677f24ecab113d7b15f1c7c34cb47c939")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ac8e1455a4f4a9c1960b524500f667f008af4bb0")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmartStudy.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmartStudy.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

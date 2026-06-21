@@ -1,0 +1,12 @@
+C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.Domain\bin\Debug\net10.0\SmartStudy.Domain.deps.json
+C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.Domain\bin\Debug\net10.0\SmartStudy.Domain.dll
+C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.Domain\bin\Debug\net10.0\SmartStudy.Domain.pdb
+C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.Domain\obj\Debug\net10.0\SmartStudy.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.Domain\obj\Debug\net10.0\SmartStudy.Domain.AssemblyInfoInputs.cache
+C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.Domain\obj\Debug\net10.0\SmartStudy.Domain.AssemblyInfo.cs
+C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.Domain\obj\Debug\net10.0\SmartStudy.Domain.csproj.CoreCompileInputs.cache
+C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.Domain\obj\Debug\net10.0\SmartStudy.Domain.sourcelink.json
+C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.Domain\obj\Debug\net10.0\SmartStudy.Domain.dll
+C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.Domain\obj\Debug\net10.0\refint\SmartStudy.Domain.dll
+C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.Domain\obj\Debug\net10.0\SmartStudy.Domain.pdb
+C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.Domain\obj\Debug\net10.0\ref\SmartStudy.Domain.dll
