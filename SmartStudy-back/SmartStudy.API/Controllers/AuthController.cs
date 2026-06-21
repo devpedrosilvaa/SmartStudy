@@ -21,7 +21,11 @@ namespace SmartStudy.API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            await _registerUserUseCase.ExecuteAsync(request);
+            var result = await _registerUserUseCase.ExecuteAsync(request);
+
+            if (result.IsFailure)
+                return BadRequest(result.Error);
+
             return Ok();
         }
     }

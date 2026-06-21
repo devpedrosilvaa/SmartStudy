@@ -1,5 +1,6 @@
 using DotNetEnv;
 using SmartStudy.API.Extensions;
+using SmartStudy.API.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +30,8 @@ builder.Services.AddSwaggerDocumentation();
 builder.Services.AddControllers();
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {

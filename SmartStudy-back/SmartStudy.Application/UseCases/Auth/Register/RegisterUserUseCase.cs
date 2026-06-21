@@ -1,5 +1,7 @@
 ﻿using SmartStudy.Application.Interfaces.Repositories;
 using SmartStudy.Application.Interfaces.Security;
+using SmartStudy.Domain.Common;
+using SmartStudy.Domain.Common.Errors;
 
 namespace SmartStudy.Application.UseCases.Auth.Register
 {
@@ -16,11 +18,11 @@ namespace SmartStudy.Application.UseCases.Auth.Register
             _passwordHasher = passwordHasher;
         }
 
-        public async Task ExecuteAsync(RegisterUserRequest request)
+        public async Task<Result> ExecuteAsync(RegisterUserRequest request)
         {
             var existingUser = await _userRepository.GetByEmail(request.Email);
             if(existingUser is not null)
-                throw new Exception("User with this email already exists.");
+                return Result.Failure(UserError.UserEmailAlreadyExists);
 
             var passwordHash = _passwordHasher.Execute(request.Password);
 
@@ -32,6 +34,8 @@ namespace SmartStudy.Application.UseCases.Auth.Register
 
             await _userRepository.AddAsync(user);
             await _unitOfWork.CommitAsync();
+
+            return Result.Success();
         }
     }
 }
