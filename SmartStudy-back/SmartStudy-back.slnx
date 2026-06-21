@@ -1,1 +1,9 @@
-<Solution />
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="SmartStudy.API/SmartStudy.API.csproj" />
+    <Project Path="SmartStudy.Application/SmartStudy.Application.csproj" />
+    <Project Path="SmartStudy.Domain/SmartStudy.Domain.csproj" />
+    <Project Path="SmartStudy.Infrastructure/SmartStudy.Infrastructure.csproj" />
+    <Project Path="SmartStudy.Tests/SmartStudy.Tests.csproj" />
+  </Folder>
+</Solution>
