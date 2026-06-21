@@ -10,4 +10,13 @@
     <ProjectReference Include="..\SmartStudy.Domain\SmartStudy.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="UseCases\Auth\Login\" />
+    <Folder Include="UseCases\User\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.2.0" />
+  </ItemGroup>
+
 </Project>

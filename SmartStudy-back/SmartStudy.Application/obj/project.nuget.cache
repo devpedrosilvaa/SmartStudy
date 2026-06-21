@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "BEv5fiywDU4=",
+  "dgSpecHash": "FQq95mAYkzQ=",
   "success": true,
   "projectFilePath": "C:\\PROJETOS_2026\\new\\SmartStudy\\SmartStudy-back\\SmartStudy.Application\\SmartStudy.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\pedro\\.nuget\\packages\\bcrypt.net-next\\4.2.0\\bcrypt.net-next.4.2.0.nupkg.sha512"
+  ],
   "logs": []
 }

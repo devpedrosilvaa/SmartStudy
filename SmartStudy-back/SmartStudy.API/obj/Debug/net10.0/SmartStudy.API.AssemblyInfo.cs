@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmartStudy.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ac8e1455a4f4a9c1960b524500f667f008af4bb0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+948c849d29bf1775f33182a3c42a654e91a06b73")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmartStudy.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmartStudy.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

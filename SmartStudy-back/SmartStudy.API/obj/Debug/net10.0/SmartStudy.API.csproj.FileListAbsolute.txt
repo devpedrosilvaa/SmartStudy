@@ -161,10 +161,12 @@ C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.API\obj\Debug\net10.0
 C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.API\obj\Debug\net10.0\staticwebassets.development.json
 C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.API\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.API\obj\Debug\net10.0\swae.build.ex.cache
-C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.API\obj\Debug\net10.0\SmartStu.07D7F897.Up2Date
 C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.API\obj\Debug\net10.0\SmartStudy.API.dll
 C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.API\obj\Debug\net10.0\refint\SmartStudy.API.dll
 C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.API\obj\Debug\net10.0\SmartStudy.API.pdb
 C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.API\obj\Debug\net10.0\SmartStudy.API.genruntimeconfig.cache
 C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.API\obj\Debug\net10.0\ref\SmartStudy.API.dll
+C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.API\bin\Debug\net10.0\BCrypt-Net-Next.dll
+C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

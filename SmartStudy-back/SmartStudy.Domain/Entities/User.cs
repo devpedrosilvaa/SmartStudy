@@ -7,12 +7,12 @@ namespace SmartStudy.Domain.Entities
 {
     public class User
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string PasswordHash { get; set; }
-        public string Role { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public Guid Id { get; private set; }
+        public string Name { get; private set; } = string.Empty;
+        public string Email { get; private set; } = string.Empty;
+        public string PasswordHash { get; private set; } = string.Empty;
+        public string Role { get; private set; } = string.Empty;
+        public DateTime CreatedAt { get; private set; }
 
         public User() {}
 
