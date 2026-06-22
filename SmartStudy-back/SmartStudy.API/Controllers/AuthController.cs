@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SmartStudy.Application.UseCases.Auth.Login;
 using SmartStudy.Application.UseCases.Auth.Register;
+using SmartStudy.Domain.Common;
 
 namespace SmartStudy.API.Controllers
 {
@@ -9,10 +11,12 @@ namespace SmartStudy.API.Controllers
     public class AuthController : ControllerBase
     {
         private readonly RegisterUserUseCase _registerUserUseCase;
+        private readonly LoginUseCase _loginUseCase;
 
-        public AuthController(RegisterUserUseCase registerUserUseCase)
+        public AuthController(RegisterUserUseCase registerUserUseCase, LoginUseCase loginUseCase)
         {
             _registerUserUseCase = registerUserUseCase;
+            _loginUseCase = loginUseCase;
         }
 
         [HttpPost("register")]
@@ -27,6 +31,17 @@ namespace SmartStudy.API.Controllers
                 return BadRequest(result.Error);
 
             return Ok();
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            LoginResponse result = await _loginUseCase.ExecuteAsync(loginRequest);
+            
+            return Ok(result);
         }
     }
 }

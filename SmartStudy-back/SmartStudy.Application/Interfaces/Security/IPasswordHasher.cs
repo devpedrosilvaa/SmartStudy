@@ -7,5 +7,6 @@ namespace SmartStudy.Application.Interfaces.Security
     public interface IPasswordHasher
     {
         string Execute(string password);
+        bool ValidPassword(string password, string passwordHash);
     }
 }

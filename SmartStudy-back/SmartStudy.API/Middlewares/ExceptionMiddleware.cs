@@ -1,23 +1,26 @@
 ﻿using System.Net;
+using System.Text.Json;
 
 namespace SmartStudy.API.Middlewares
 {
     public class ExceptionMiddleware
     {
         private readonly RequestDelegate _next;
-        private ILogger<ExceptionMiddleware> _logger;
+        private readonly ILogger<ExceptionMiddleware> _logger;
 
-        public ExceptionMiddleware(ILogger<ExceptionMiddleware> logger, RequestDelegate next)
+        public ExceptionMiddleware(
+            RequestDelegate next,
+            ILogger<ExceptionMiddleware> logger)
         {
-            _logger = logger;
             _next = next;
+            _logger = logger;
         }
 
         public async Task InvokeAsync(HttpContext context)
         {
             try
             {
-
+                await _next(context);
             }
             catch (Exception ex)
             {
@@ -29,30 +32,48 @@ namespace SmartStudy.API.Middlewares
             }
         }
 
-        private async Task HandleExceptionAsync(HttpContext context, Exception ex)
+        private static async Task HandleExceptionAsync(
+            HttpContext context,
+            Exception ex)
         {
-            context.Response.ContentType= "application/json";
+            context.Response.ContentType = "application/json";
 
-            var response = new ErrorResponse();
+            ErrorResponse response;
 
-            switch(ex) 
+            switch (ex)
             {
-                case UnauthorizedAccessException: 
-                    context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-                    
+                case UnauthorizedAccessException:
+                    context.Response.StatusCode =
+                        (int)HttpStatusCode.Unauthorized;
+
                     response = new ErrorResponse
                     {
                         StatusCode = context.Response.StatusCode,
-                        Message = "Unauthorized access"
+                        Message = ex.Message ?? "Unauthorized access"
                     };
                     break;
+
                 case KeyNotFoundException:
-                    context.Response.StatusCode = (int)HttpStatusCode.NotFound;
+                    context.Response.StatusCode =
+                        (int)HttpStatusCode.NotFound;
+
                     response = new ErrorResponse
                     {
                         StatusCode = context.Response.StatusCode,
-                        Message = "Resource not found"
+                        Message = ex.Message ?? "Resource not found"
                     };
+                    break;
+
+                case InvalidDataException:
+                    context.Response.StatusCode =
+                        (int)HttpStatusCode.BadRequest;
+
+                    response = new ErrorResponse
+                    {
+                        StatusCode = context.Response.StatusCode,
+                        Message = ex.Message ?? "Invalid data"
+                    };
+
                     break;
 
                 default:
@@ -67,7 +88,7 @@ namespace SmartStudy.API.Middlewares
                     break;
             }
 
-            var json = System.Text.Json.JsonSerializer.Serialize(response);
+            var json = JsonSerializer.Serialize(response);
 
             await context.Response.WriteAsync(json);
         }

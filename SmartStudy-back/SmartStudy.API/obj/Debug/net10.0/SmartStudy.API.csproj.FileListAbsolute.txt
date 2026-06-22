@@ -167,6 +167,6 @@ C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.API\obj\Debug\net10.0
 C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.API\obj\Debug\net10.0\SmartStudy.API.pdb
 C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.API\obj\Debug\net10.0\SmartStudy.API.genruntimeconfig.cache
 C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.API\obj\Debug\net10.0\ref\SmartStudy.API.dll
-C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.API\bin\Debug\net10.0\BCrypt-Net-Next.dll
 C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\PROJETOS_2026\new\SmartStudy\SmartStudy-back\SmartStudy.API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

@@ -1,33 +1,83 @@
 using DotNetEnv;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using SmartStudy.API.Extensions;
 using SmartStudy.API.Middlewares;
+using SmartStudy.Application.UseCases.Auth;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddSwaggerGen();
-
 var envPath = Path.Combine(
-    Directory.GetCurrentDirectory(),
+    builder.Environment.ContentRootPath,
     ".env"
 );
-if (!File.Exists(envPath))
-    throw new InvalidOperationException("Arquivo .env não encontrado!");
 
-Env.Load(envPath);
+Console.WriteLine("ENV PATH: " + envPath);
+Console.WriteLine("ENV EXISTS: " + File.Exists(envPath));
+
+DotNetEnv.Env.Load(envPath);
+
+builder.Configuration.AddEnvironmentVariables();
+
+Console.WriteLine("DB ENV: " + Environment.GetEnvironmentVariable("DB_CONNECTION_STRING"));
+Console.WriteLine("JWT KEY ENV: " + Environment.GetEnvironmentVariable("Jwt__Key"));
+
+Console.WriteLine("DB CONFIG: " + builder.Configuration["DB_CONNECTION_STRING"]);
+Console.WriteLine("JWT KEY CONFIG: " + builder.Configuration["Jwt:Key"]);
+
 var dbConnection =
-    Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
+    builder.Configuration["DB_CONNECTION_STRING"];
 
 if (string.IsNullOrWhiteSpace(dbConnection))
     throw new InvalidOperationException(
-        "DB_CONNECTION_STRING não encontrada. Verifique se o arquivo .env está na pasta SmartStudy.API."
-    );
+        "DB_CONNECTION_STRING não encontrada.");
+
+var jwtKey =
+    builder.Configuration["Jwt:Key"];
+
+if (string.IsNullOrWhiteSpace(jwtKey))
+    throw new InvalidOperationException(
+        "Jwt:Key não encontrada.");
+
+builder.Services.Configure<JwtOptions>(
+    builder.Configuration.GetSection("Jwt"));
 
 builder.Services.AddApplicationServices();
-builder.Services.AddInfrastructure(dbConnection);
+
+builder.Services.AddInfrastructure(
+    dbConnection,
+    builder.Configuration);
+
+builder.Services.AddControllers();
+
 builder.Services.AddSwaggerDocumentation();
 
-// Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddAuthentication(
+    JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters =
+            new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+
+                ValidIssuer =
+                    builder.Configuration["Jwt:Issuer"],
+
+                ValidAudience =
+                    builder.Configuration["Jwt:Audience"],
+
+                IssuerSigningKey =
+                    new SymmetricSecurityKey(
+                        Encoding.UTF8.GetBytes(jwtKey))
+            };
+    });
+
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
@@ -39,10 +89,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// Configure the HTTP request pipeline.
-
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
